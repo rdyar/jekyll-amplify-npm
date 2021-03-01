@@ -1,0 +1,29 @@
+---
+layout: null
+title: Jekyll with Amplify and NPM
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/assets/css/site.css?v={{site.time | date: '%s'}}">
+  <script src="/assets/js/sample.js?v={{site.time | date: '%s'}}"></script>
+  <title>Jekyll with Amplify and NPM</title>
+</head>
+<body>
+  <h1>Jekyll with Amplify and NPM</h1>
+  <p>Jekyll version {{jekyll.version}}, {{jekyll.environment}} environment.</p>
+  <p>Just the basic files needed for a jekyll site to be built with NPM scripts and hosted on AWS Amplify.</p>
+  <p>Link to <a href="/error/">error page</a>.</p>
+  <p><button onClick="test()">Javascript test</button></p>
+  <p>If you are seeing this in the browser and the H1 tag is a sort of teal color then things are working, sass has been processed. Try running `npm run deploy` and then look at the _site folder contents, the files should all be minified and the css should be prefixed, the first css rule should have webkit attributes added to it.</p>
+  <p>Pull some images (3) to make sure they transfer - 2 are in sub folders.</p>
+  <img src="/assets/images/1.png" alt="image in main images folder">
+  <img src="/assets/images/subfolder/2.png" alt="image in sub folder">
+  <img src="/assets/images/subfolder/subsubfolder/3.png" alt="image in sub sub folder">
+  
+</body>
+</html>

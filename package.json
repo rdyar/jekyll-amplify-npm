@@ -1,0 +1,47 @@
+{
+  "name": "jekyll-npm-amplify",
+  "version": "1.0.0",
+  "description": "",
+  "main": "",
+  "dependencies": {
+    "autoprefixer": "^10.0.2",
+    "browser-sync": "^2.26.13",
+    "copyfiles": "^2.4.0",
+    "cssnano": "^4.1.10",
+    "html-minifier": "^4.0.0",
+    "node-sass": "^5.0.0",
+    "npm-run-all": "^4.1.5",
+    "onchange": "^7.1.0",
+    "postcss": "^8.1.8",
+    "postcss-cli": "^8.3.0",
+    "sass": "^1.32.8",
+    "uglifyjs-folder": "^2.0.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build:jekyll": "jekyll b",
+    "build:sass": "sass _assets/sass/site.scss _site/assets/css/site.css",
+    "build:js": "mkdir _site\\assets\\js & uglifyjs-folder _assets/js/ -e -x .js -o _site/assets/js/",
+    "move-images": "copyfiles -a -V -u 1 _assets/images/**/* _site/assets",
+    "css:autoprefixer": "postcss -u autoprefixer -r _site/assets/css/site.css",
+    "minify:css": "postcss -u cssnano --output _site/assets/css/site.css _site/assets/css/site.css",
+    "minify:html": "html-minifier --input-dir _site --output-dir _site --remove-comments --collapse-whitespace --file-ext html",
+    "watch:jekyll": "onchange  **/*{.txt,.html,.yml,.xml,.md} -e _site -- npm run build:jekyll",
+    "watch:sass": "onchange  _assets/sass/**/*.scss -- npm run build:sass",
+    "watch:images": "onchange  **/*{.jpg,.png,.gif} -e _site -- npm run move-images",
+    "serve": "browser-sync start --server '_site' --files '_site'",
+    "dev": "npm run build:sass && npm run build:js && npm run move-images && npm run build:jekyll && run-p watch:* serve",
+    "predeploy": "npm run build:sass && npm run move-images && npm run build:js",
+    "deploy": "npm run build:jekyll",
+    "postdeploy": "npm run minify:css && npm run minify:html && npm run css:autoprefixer"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "homepage": ""
+}

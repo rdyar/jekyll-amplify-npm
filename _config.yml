@@ -1,0 +1,9 @@
+name: Jekyll NPM Amplify
+permalink: pretty
+
+# this is important - tells jekyll to not delete the assets folder when the site regenerates
+#everything in the assets folder is processed by the NPM scripts
+keep_files: [assets]   
+
+exclude: ["package.json","package-lock.json","README.md","amplify.yml","customHttp.yml","LICENSE"]
+

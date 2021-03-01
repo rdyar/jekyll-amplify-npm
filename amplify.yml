@@ -1,0 +1,23 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - ruby -v
+        #- rvm --default use 2.6.3
+        #- ruby -v
+        - npm ci
+        - jekyll -v
+        #- gem install jekyll
+        #- jekyll -v
+    build:
+      commands:
+        - npm run deploy
+  artifacts:
+    # IMPORTANT - Please verify your build output directory
+    baseDirectory: _site
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - node_modules/**/*
