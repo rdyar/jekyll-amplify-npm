@@ -16,6 +16,9 @@ title: Jekyll with Amplify and NPM
 <body>
   <h1>Jekyll with Amplify and NPM</h1>
   <p>Jekyll version {{jekyll.version}}, {{jekyll.environment}} environment.</p>
+  {% if jekyll.environment == "production" %}
+  <b>This is the production environment!</b> We could have analytics code set to only run in production.
+  {% endif %}
   <p>Just the basic files needed for a jekyll site to be built with NPM scripts and hosted on AWS Amplify.</p>
   <p>Link to <a href="/error/">error page</a>.</p>
   <p><button onClick="test()">Javascript test</button></p>
