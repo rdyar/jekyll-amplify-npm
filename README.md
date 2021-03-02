@@ -14,13 +14,14 @@ Don't use this file if you don't understand what it does (delete it). It would b
 - minify html
 - reduce load on files Jekyll has to process - make the core things we need Jekyll to do faster
 - npm watch script can watch _config file for changes and rebuild
+- htmlhint checker
 
 ## Why use AWS Amplify? 
 
 - allows any plugins
 - simple continuous deployment
 - dev and production sites
-    - password protected dev site
+    - optional password protected dev site (or main site)
 - custom headers
 - control over redirects
 - dirt cheap (for sites like mine at least)
@@ -38,7 +39,7 @@ First you need to install all the package.json stuff - this will require Node. R
 All of your static assets - sass, js and images go into a folder named `_assets`. Jekyll will ignore this file as it begins with an underscore. These files are handled by the NPM scripts. In the Jekyll config file it is important to set `keep_files: [assets]` so that Jekyll does not delete them every time it rebuilds. As it is now the NPM script looks for a sass folder, a js folder and an images folder and processes and watches those files only. If your folders are not named like that, change the npm script rather than the folder names or else you will need to update all the references.  
 
 Example:  
-The script is looking for images in assets/images - if your folder name is different you should probably just update the line in the script that moves the images. This would be a lot easier than updating every image reference. The line in question is:  
+The script is looking for images in `_assets/images` - if your folder name is different you should probably just update the line in the script that moves the images. This would be a lot easier than updating every image reference. The line in question is:  
 "move-images": "copyfiles -a -V -u 1 \"_assets/images/**/*\" _site/assets",
 
 In the middle where it says _assets/images - you can change that to img or pics or whatever. Still should be in the _assets folder though. When the site is built it will turn into `assets` - without the underscore.
