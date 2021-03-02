@@ -21,10 +21,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build:jekyll": "jekyll b",
+    "build:jekyll": "jekyll b && npm run htmlhint || exit 0",
     "build:sass": "sass _assets/sass/site.scss _site/assets/css/site.css",
     "build:js": "mkdir _site\\assets\\js & uglifyjs-folder _assets/js/ -e -x .js -o _site/assets/js/",
-    "move-images": "copyfiles -a -V -u 1 \"_assets/img/**/*\" _site/assets",
+    "move-images": "copyfiles -a -V -u 1 \"_assets/images/**/*\" _site/assets",
     "css:autoprefixer": "postcss -u autoprefixer -r _site/assets/css/site.css",
     "minify:css": "postcss -u cssnano --output _site/assets/css/site.css _site/assets/css/site.css",
     "minify:html": "html-minifier --input-dir _site --output-dir _site --remove-comments --collapse-whitespace --file-ext html",

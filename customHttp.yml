@@ -1,7 +1,7 @@
 # - Be careful, make sure the .html one is at the bottom and is short!
 # - css and js are cached for a long time, make sure you are cache busting (I use query string with timestamp)
-
 # - cache all the things for a long time. Images need to be renamed/busted if resaved
+# ---------- this file will not work if it contains empty lines -------------
 customHeaders:
   - pattern: '**/*'
     headers:
