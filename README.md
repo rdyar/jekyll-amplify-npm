@@ -3,6 +3,8 @@ Starter for using Amplify on a jekyll site with NPM scripts handling sass/js and
 
 Uses NPM scripts to compile sass, uglify js and move images from src to _site. These files are not processed by Jekyll.
 
+This should be a functioning bare bones jekyll site. Download it and run `npm install` and then run `npm run dev` and it should build the site and open it in your browser while watching the source for changes. To do this on your own existing site all you really need are the package.json file - and if you use amplify you can use the amplify and customHttp yml files as well. Then you need to run `npm install`. Then make sure you put all your sass, js and image files in a folder named _assets. Also make sure you edit your config file to keep the assets folder (see below) and also I added the Amplify files to the exclude array. 
+
 # Careful with the customHttp.yml file! 
 
 Don't use this file if you don't understand what it does (delete it). It would be very easy to change the cache time to live that the browser uses and make it so your users never see new changes you make! it is possible I have it set in such a way that it works great for me, but your files may get messed up. For instance your html files could be named `.htm` instead of `.html` and that would be really bad. I have it set to cache anything that is not `.html` for at least 3 days (.css and .js) and much longer for everything else. `.html` files are cached for 10 minutes.
